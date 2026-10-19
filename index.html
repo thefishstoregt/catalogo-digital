@@ -1861,7 +1861,6 @@ function procesarPedido(nombre,correo,direccion){
   const pedido=facturaTexto(f);
   const datos={nombre:f.nombre,correo:f.correo,direccion:f.direccion,pedido:pedido,_subject:"Nueva factura " + f.numero + " de " + f.nombre,...(f.correo?{_replyto:f.correo}:{}),_template:"table",_captcha:"true"};
 
-  // Descontar del inventario las unidades que se acaban de vender.
   for (const item of f.productos) {
     const producto = getProduct(item.name);
     if (producto) {
